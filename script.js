@@ -24,3 +24,15 @@ function renderSearchHistory() {
       renderSearchHistory();
     }
   }
+
+  function renderWeather(city, weather) {
+    todayContainer.innerHTML = `
+      <div class="weather-card">
+        <h2>${city} (${dayjs().format('M/D/YYYY')})
+          <img src="https://openweathermap.org/img/w/${weather.weather[0].icon}.png" alt="${weather.weather[0].description}">
+        </h2>
+        <p>Temp: ${weather.main.temp}°F</p>
+        <p>Wind: ${weather.wind.speed} MPH</p>
+        <p>Humidity: ${weather.main.humidity}%</p>
+      </div>`;
+  }
