@@ -16,3 +16,11 @@ function renderSearchHistory() {
       `<button type="button" data-search="${city}">${city}</button>`
     ).join('');
   }
+
+  function appendToHistory(city) {
+    if (!searchHistory.includes(city)) {
+      searchHistory.push(city);
+      localStorage.setItem('search-history', JSON.stringify(searchHistory));
+      renderSearchHistory();
+    }
+  }
