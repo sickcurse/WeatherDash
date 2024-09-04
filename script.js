@@ -36,3 +36,14 @@ function renderSearchHistory() {
         <p>Humidity: ${weather.main.humidity}%</p>
       </div>`;
   }
+
+  function renderForecast(forecast) {
+    forecastContainer.innerHTML = forecast.filter(f => dayjs(f.dt_txt).hour() === 12).map(f => `
+      <div class="five-day-card">
+        <h5>${dayjs(f.dt_txt).format('M/D/YYYY')}</h5>
+        <img src="https://openweathermap.org/img/w/${f.weather[0].icon}.png" alt="${f.weather[0].description}">
+        <p>Temp: ${f.main.temp} °F</p>
+        <p>Wind: ${f.wind.speed} MPH</p>
+        <p>Humidity: ${f.main.humidity}%</p>
+      </div>`).join('');
+  }
