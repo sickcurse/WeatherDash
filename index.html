@@ -4,4 +4,24 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./styles/jass.css">
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<body>
+    <header>
+     <h1 class="text-center">Weather Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="row"> 
+            <div class="col-3">
+                <form id="search-form" class="form-group">
+                    <label for="search-input" class="form-label">Search for a City:</label>
+                    <input type="text" id="search-input" class="form-input weather-search" placeholder="Enter a city name">
+                    <button type="submit" class="btn btn-primary search-button">Search</button>
+                  </form>
+                  <div id="history"></div>
+             </div>
+        </div>
+    </div>
+        
+</body>
