@@ -56,3 +56,16 @@ function renderSearchHistory() {
         renderForecast(data.list);
       });
   }
+
+  function fetchCoords(city) {
+    fetch(`${weatherUrl}/geo/1.0/direct?q=${city}&limit=5&appid=${weatherApiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data[0]) {
+          appendToHistory(city);
+          fetchWeather(data[0]);
+        } else {
+          alert('Location not found');
+        }
+      });
+  }
