@@ -69,3 +69,10 @@ function renderSearchHistory() {
         }
       });
   }
+
+  searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const city = searchInput.value.trim();
+    if (city) fetchCoords(city);
+    searchInput.value = '';
+  });
