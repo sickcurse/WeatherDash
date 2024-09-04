@@ -76,3 +76,10 @@ function renderSearchHistory() {
     if (city) fetchCoords(city);
     searchInput.value = '';
   });
+
+  searchHistoryContainer.addEventListener('click', e => {
+    if (e.target.matches('button')) fetchCoords(e.target.dataset.search);
+  });
+  
+  renderSearchHistory();
+  
