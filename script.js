@@ -47,3 +47,12 @@ function renderSearchHistory() {
         <p>Humidity: ${f.main.humidity}%</p>
       </div>`).join('');
   }
+
+  function fetchWeather(location) {
+    fetch(`${weatherUrl}/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&units=imperial&appid=${weatherApiKey}`)
+      .then(res => res.json())
+      .then(data => {
+        renderWeather(location.name, data.list[0]);
+        renderForecast(data.list);
+      });
+  }
